@@ -1,0 +1,20 @@
+{
+  "name": "1107",
+  "version": "1.0.0",
+  "description": "",
+  "main": "array.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thinkful-ei24/kent-chelsea-DSA-Arrays.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thinkful-ei24/kent-chelsea-DSA-Arrays/issues"
+  },
+  "homepage": "https://github.com/thinkful-ei24/kent-chelsea-DSA-Arrays#readme"
+}
