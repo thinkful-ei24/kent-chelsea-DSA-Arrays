@@ -64,6 +64,7 @@ function maxSum(arr) {
 
 console.log(maxSum([4, 6, -3, 5, -2, 1]));
 
+//Merge Arrays
 // Input: [1, 3, 6, 8, 11] and [2, 3, 5, 8, 9, 10]
 // Output: [1, 2, 3, 3, 5, 6, 8, 8, 9, 10, 11]
 
@@ -94,6 +95,7 @@ function mergeArrays(arr1, arr2) {
 
 console.log(mergeArrays([1, 3, 6, 8, 11], [2, 3, 5, 8, 9, 10]));
 
+//Remove Characters
 // Input:'Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'
 // Output: 'Bttl f th Vwls: Hw vs. Grzny'
 
@@ -108,11 +110,11 @@ console.log(mergeArrays([1, 3, 6, 8, 11], [2, 3, 5, 8, 9, 10]));
 function removeCharacters(sentence, chars) {
   const lookup = {};
   let result = '';
-  for (let i=0; i<chars.length; i++) {
+  for (let i = 0; i < chars.length; i++) {
     lookup[chars[i]] = true;
   }
 
-  for (let i=0; i<sentence.length; i++) {
+  for (let i = 0; i < sentence.length; i++) {
     if (!lookup[sentence[i]]) {
       result += sentence[i];
     }
@@ -121,4 +123,112 @@ function removeCharacters(sentence, chars) {
   return result;
 }
 
-console.log(removeCharacters('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'));
+console.log(
+  removeCharacters('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou')
+);
+
+//Products
+
+// Input:[1, 3, 9, 4]
+// Output:[108, 36, 12, 27]
+//multiply all input / by index
+
+//let product = loop through * each index
+// product / loop through each index and push result to new array
+
+//O(n)
+function products(arr) {
+  let product = 1;
+  let result = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    product *= arr[i];
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    result.push(product / arr[i]);
+  }
+
+  return result;
+}
+
+console.log(products([1, 3, 9, 4]));
+
+//2D array
+
+// Input:
+// [[1,0,1,1,0],
+//  [0,1,1,1,0],
+//  [1,1,1,1,1],
+//  [1,0,1,1,1],
+//  [1,1,1,1,1]];
+
+//Copy:
+// [[1,0,1,1,0],
+//  [0,1,1,1,0],
+//  [1,1,1,1,1],
+//  [1,0,1,1,1],
+//  [1,1,1,1,1]];
+
+// Output:
+// [[0,0,0,0,0],
+//  [0,0,0,0,0],
+//  [0,0,1,1,0],
+//  [0,0,0,0,0],
+//  [0,0,1,1,0]];
+
+// make a new array that matches the dimensions of the input array
+//loop through input array arr[0] - while looking at arry[0] loop through values if there's a 0 make them all 0
+// and arr[0][1]
+
+//first find indexes for each row where there are zeros
+//ex: [1, 0, 1, 1, 0] => [1, 4]
+function findZeros(row) {
+  let indice = [];
+  for (let index = 0; index < row.length; index++) {
+    if (row[index] === 0) {
+      indice.push(index);
+    }
+  }
+  return indice;
+}
+
+function twoDArray(arr) {
+  //empty result array
+  let copyArr = [];
+  //keeping track of columns we need to zero out
+  let zeroCols = [];
+
+  arr.forEach(row => {
+    //loop through arr
+    let zeros = findZeros(row); //find zeros in each row
+
+    if (!zeros.length) {
+      //if there are no zeros
+      copyArr.push(row.slice()); //copy arr row into copyArr
+    } else {
+      zeroCols = [...zeroCols, ...zeros]; //keep track of zero out columns
+      copyArr.push(row.map(() => 0)); // create row of 0s
+    }
+  });
+
+  copyArr.forEach(row => {
+    // loop through copyArr
+    zeroCols.forEach(col => {
+      // loop through zeroCols arr
+      row[col] = 0; // based on which row we're in and the index from zeroCols change to 0
+    });
+  });
+
+  return copyArr;
+}
+
+console.log(
+  twoDArray([
+    [1, 0, 1, 1, 0],
+    [0, 1, 1, 1, 0],
+    [1, 1, 1, 1, 1],
+    [1, 0, 1, 1, 1],
+    [1, 1, 1, 1, 1]
+  ])
+);
