@@ -232,3 +232,38 @@ console.log(
     [1, 1, 1, 1, 1]
   ])
 );
+
+// String Rotation
+// Input: amazon, azonma
+// Output: False
+// Input: amazon, azonam
+// Output: true
+
+// amazon -> mazona -> azonam -> zonama -> onamaz -> namazo -> amazon
+// iterate
+// move one letter to the back
+// compare the strings
+// if it matches, return true,
+// if it doesnt match, go to the next loop
+// once it goes through all the combinations, return false
+
+function stringRotation(str1, str2) {
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  let i = 0;
+  let rotation = str1;
+  // rotation = 'amazon'
+  while (i < str1.length) { // mazon + a => mazona
+    rotation = rotation.substring(1) + rotation[0];
+    if (rotation === str2) {
+      return true;
+    }
+    i++;
+  }
+
+  return false;
+}
+
+console.log(stringRotation('amazon', 'azonma')); // => False
+console.log(stringRotation('amazon', 'azonam')); // => true
