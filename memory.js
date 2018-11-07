@@ -1,3 +1,4 @@
+'use strict';
 class Memory {
   constructor() {
     this.memory = new Float64Array(1024);
