@@ -1,4 +1,5 @@
 'use strict';
+/* eslint-disable no-console */
 const Memory = require('./memory');
 const memory = new Memory();
 

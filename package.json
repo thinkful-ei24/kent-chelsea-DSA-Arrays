@@ -17,7 +17,5 @@
     "url": "https://github.com/thinkful-ei24/kent-chelsea-DSA-Arrays/issues"
   },
   "homepage": "https://github.com/thinkful-ei24/kent-chelsea-DSA-Arrays#readme",
-  "dependencies": {
-    "express": "^4.16.4"
-  }
+  "dependencies": {}
 }
